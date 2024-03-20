@@ -34,9 +34,6 @@
 		<Unit filename="Encryption.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Untitled4.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="admin.c">
 			<Option compilerVar="CC" />
 		</Unit>
