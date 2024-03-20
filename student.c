@@ -18,11 +18,12 @@ void login_student(){
     printf("%120s", "Enter your name: ");
     scanf("%s",username);
     fscanf(fp," Username: %s",&acc.username);
-    printf("%120s","Enter your password: ");
-    scanf("%s",passcode);
-    unsigned int pass=encryption(passcode);
-    fscanf(fp," Password: %lld",&acc.passcode);
-    if(strcmp(username,acc.username)==0 && pass==acc.passcode){
+    //printf("%120s","Enter your password: ");
+    //scanf("%s",passcode);
+    //unsigned int pass=encryption(passcode);
+    //fscanf(fp," Password: %lld",&acc.passcode);
+    //if(strcmp(username,acc.username)==0 && pass==acc.passcode){
+    if(strcmp(username,acc.username)==0){
         system("cls");
        draw_border(209,'-');
        printf("\n");
@@ -77,7 +78,7 @@ error:
             break;
         case 7:
             system("cls");
-            //menu();
+            menu();
             break;
         case 8:
             system("cls");
