@@ -131,3 +131,38 @@
 1710941937 source:f:\1-2\sp project\dormweb2\food_menu.c
 	<stdio.h>
 
+1710922817 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\admin.c
+	<stdio.h>
+	"admin.h"
+	<string.h>
+	<stdlib.h>
+
+1710922817 c:\users\iqura\desktop\1-2\sp project\dormweb2\admin.h
+
+1710922817 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\encryption.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1710922817 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\main.c
+	<stdio.h>
+	<string.h>
+	"admin.h"
+	"student.h"
+	"search_student.h"
+
+1710922817 c:\users\iqura\desktop\1-2\sp project\dormweb2\student.h
+
+1710946256 c:\users\iqura\desktop\1-2\sp project\dormweb2\search_student.h
+
+1710946479 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\search_student.c
+	<stdio.h>
+	<string.h>
+	"search_student.h"
+
+1710946305 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\student.c
+	<stdio.h>
+	"student.h"
+	<string.h>
+	<stdlib.h>
+

@@ -39,6 +39,9 @@
 		</Unit>
 		<Unit filename="admin.h" />
 		<Unit filename="encryption.h" />
+		<Unit filename="food_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
