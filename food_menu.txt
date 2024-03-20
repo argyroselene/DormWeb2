@@ -1,0 +1,22 @@
+| DAY________| BREAKFAST_______________________________| LUNCH________________________________________________|DINNER_______________________________________________|
+|____________|_________________________________________|______________________________________________________|_____________________________________________________|
+
+| MONDAY_____| Square Bread,Jam,Butter,Egg,Tea_________|Tanduri,Chicken Chilli Curry,Mixed Vegetables/Shak,Dal|Boiled Rice,Fish Curry/Egg Curry,Dal_________________|
+
+| TUESDAY____| Khichuri with Egg(1 pc) curry,Tea_______|Manseef(Half brown rice),Mutton(yoghurt & Mug Dal),Dal|Polao,Broiler Chicken/Egg(2pc)Curry,Raita Salad______|
+
+| WEDNESDAY__| Square Bread,Jam,Butter,Egg,Tea_________|Tanduri,Beef Curry(Sweet & Chilli),Vegetable,Dal______|Plain Polao,Broiler Chicken(Sweet & Sour),Salad______|
+
+| THURSDAY___| Square Bread,Jam,Butter,Egg,Tea_________|Boiled Rice,Fish Curry,Potato mash,Dal,Beef curry_____|Boiled Rice,Fish Curry/Beef Curry,Dal,Raita Salad____|
+
+| FRIDAY_____| Square Bread,Jam,Butter,Egg,Tea_________|Tanduri,Beef Curry(Sweet & Chilli),Vegetable,Dal______|Chicken Fry,Fried Rice,Chinese Vegetable,Soft drinks_|
+
+| SATURDAY___| Paratha,Buter Dal,Suji halwa,Egg,Tea____|Polao,Beef curry (Sweet & Chilli),Muri ghanta,Dal_____|Boiled Rice,Tanduri,Mutton Curry/fish curry,Dal______|
+
+| SUNDAY_____| Paratha,Buter Dal,Suji halwa,Egg,Tea____|Khichuri with Egg (1pc),Magluba,Chicken Roast,Tea_____|Tanduri with Beef Curry/Beef Keema,Boiled Rice,Dal___|
+
+
+Note:
+
+*Fish / Mutton / Beef / Chicken will be supplied if available.
+*Sweet Curry will be prepared without any kinds of Chilli.

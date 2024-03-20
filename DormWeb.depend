@@ -1,0 +1,95 @@
+# depslib dependency file v1.0
+1710873664 source:c:\users\iqura\desktop\1-2\sp project\dormweb\admin.c
+	<stdio.h>
+	"admin.h"
+	<string.h>
+	<stdlib.h>
+
+1710873593 c:\users\iqura\desktop\1-2\sp project\dormweb\admin.h
+
+1710862347 source:c:\users\iqura\desktop\1-2\sp project\dormweb\main.c
+	<stdio.h>
+	<string.h>
+	"admin.h"
+	"student.h"
+
+1710869627 c:\users\iqura\desktop\1-2\sp project\dormweb\student.h
+
+1710873402 source:c:\users\iqura\desktop\1-2\sp project\dormweb\student.c
+	<stdio.h>
+	"student.h"
+	<string.h>
+	<stdlib.h>
+
+1710873057 source:c:\users\iqura\desktop\1-2\sp project\dormweb\dashboard.c
+	<stdio.h>
+	<string.h>
+	"dashboard.h"
+
+1710872505 c:\users\iqura\desktop\1-2\sp project\dormweb\dashboard.h
+
+1710873666 source:h:\dormweb\admin.c
+	<stdio.h>
+	"admin.h"
+	<string.h>
+	<stdlib.h>
+
+1710873594 h:\dormweb\admin.h
+
+1710873870 source:h:\dormweb\main.c
+	<stdio.h>
+	<string.h>
+	"admin.h"
+	"student.h"
+	"search_student.h"
+
+1710874238 h:\dormweb\student.h
+
+1710876228 h:\dormweb\search_student.h
+
+1710874466 source:h:\dormweb\student.c
+	<stdio.h>
+	"student.h"
+	<string.h>
+	<stdlib.h>
+
+1710873666 source:f:\dormweb\admin.c
+	<stdio.h>
+	"admin.h"
+	<string.h>
+	<stdlib.h>
+
+1710873594 f:\dormweb\admin.h
+
+1710917320 source:f:\dormweb\encryption.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1710913356 source:f:\dormweb\main.c
+	<stdio.h>
+	<string.h>
+	"admin.h"
+	"student.h"
+	"search_student.h"
+
+1710921208 f:\dormweb\student.h
+
+1710876228 f:\dormweb\search_student.h
+
+1710876056 source:f:\dormweb\search_student.c
+	<stdio.h>
+	<string.h>
+	"search_student.h"
+
+1710874466 source:f:\dormweb\student.c
+	<stdio.h>
+	"student.h"
+	<string.h>
+	<stdlib.h>
+
+1710868812 source:f:\dormweb\untitled4.c
+
+1710916720 source:f:\dormweb\food_menu.c
+	<stdio.h>
+
