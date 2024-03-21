@@ -74,7 +74,7 @@ error:
 
         case 3:
             system("cls");
-            //study();
+            study();
             break;
 
         case 4:
