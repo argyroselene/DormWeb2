@@ -45,13 +45,13 @@ void login_student()
     scanf("%s", username);
     printf("%120s", "Enter your password: ");
     scanf("%s", passcode);
-
+    unsigned long pass=encryption(passcode);
     int found = 0;
 
     // Read each record from the file and check for matching username and password
-    while (fscanf(fp, " Username: %s\n Password: %s\n", acc.username, acc.passcode) == 2)
+    while (fscanf(fp, " Username: %s\n Password: %lu\n", acc.username, &acc.passcode) == 2)
     {
-        if (strcmp(username, acc.username) == 0 && strcmp(passcode, acc.passcode) == 0)
+            if(strcmp(username,acc.username)==0 && pass==acc.passcode)
         {
             found = 1;
             break; // Exit loop if match found
