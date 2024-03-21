@@ -2,6 +2,7 @@
 #include "student.h"
 #include <string.h>
 #include <stdlib.h>
+#include "dashboard.h"
 void login_student()
 {
     char username[101];
