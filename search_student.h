@@ -10,4 +10,3 @@ struct Student {
     char contact_number[20];
 };
 
-voi

@@ -6,5 +6,5 @@ void login_student();
 unsigned long encryption(char* passcode);
 struct account{
     char username[101];
-    long long int passcode;
+    char passcode[101];
     };

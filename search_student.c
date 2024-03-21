@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include"search_student.h"
+#include "search_student.h"
 
 void search_student(){
 
