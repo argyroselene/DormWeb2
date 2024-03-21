@@ -69,10 +69,3 @@ Password: -4610564451592130023
 
 Username: t_siddiqua
 Password: -4290286885577330273
-
-
-Username: s_muntaha
-Password: 2321947954
-
-Username: t_siddiqua
-Password: 2090122196
