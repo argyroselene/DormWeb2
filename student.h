@@ -5,6 +5,7 @@ void print_centre_wnl(char *s);
 void login_student();
 unsigned long encryption(char* passcode);
 struct account{
+    char name [120];
     char username[101];
     unsigned long passcode;
     };
