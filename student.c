@@ -64,7 +64,7 @@ error:
         {
         case 1:
             system("cls");
-            //dashboard();
+            dashboard(acc.name);
             break;
 
         case 2:
