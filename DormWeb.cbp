@@ -38,6 +38,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="admin.h" />
+		<Unit filename="dashboard.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dashboard.h" />
 		<Unit filename="encryption.h" />
 		<Unit filename="food_menu.c">
 			<Option compilerVar="CC" />
