@@ -90,7 +90,7 @@ error:
 
         case 6:
             system("cls");
-            //submit_complaint();
+            complaint_submit();
             break;
         case 7:
             system("cls");

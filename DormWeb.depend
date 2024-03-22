@@ -113,7 +113,7 @@
 	"student.h"
 	"search_student.h"
 
-1711032487 f:\1-2\sp project\dormweb2\student.h
+1711059672 f:\1-2\sp project\dormweb2\student.h
 
 1711014337 f:\1-2\sp project\dormweb2\search_student.h
 
@@ -122,11 +122,12 @@
 	<string.h>
 	"search_student.h"
 
-1711033012 source:f:\1-2\sp project\dormweb2\student.c
+1711086880 source:f:\1-2\sp project\dormweb2\student.c
 	<stdio.h>
 	"student.h"
 	<string.h>
 	<stdlib.h>
+	"dashboard.h"
 
 1711013580 source:f:\1-2\sp project\dormweb2\food_menu.c
 	<stdio.h>
@@ -165,4 +166,24 @@
 	"student.h"
 	<string.h>
 	<stdlib.h>
+
+1711090477 source:f:\1-2\sp project\dormweb2\dashboard.c
+	<stdio.h>
+	<string.h>
+	"dashboard.h"
+
+1711033270 f:\1-2\sp project\dormweb2\dashboard.h
+
+1711059672 source:f:\1-2\sp project\dormweb2\study.c
+	<stdio.h>
+	<stdlib.h>
+	"student.h"
+	"admin.h"
+
+1711086687 source:f:\1-2\sp project\dormweb2\complaint_submit.c
+	<stdio.h>
+	<string.h>
+	"complaint_submit.h"
+
+1711086829 f:\1-2\sp project\dormweb2\complaint_submit.h
 

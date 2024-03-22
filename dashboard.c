@@ -2,7 +2,7 @@
 #include <string.h>
 #include "dashboard.h"
 
-void dashboard(char name[])
+void dashboard(char* name)
 {
 
     FILE *dashboard;
@@ -15,20 +15,22 @@ void dashboard(char name[])
         printf("Error: Unable to open the file.\n");
     }
 
-
-//    char input_id[20];
-//    printf("Enter student ID: ");
-//    scanf("%s", input_id);
-
     int found = 0;
     while (fscanf(dashboard, "%[^,],%[^,],%d,%[^,],%[^,],%[^\n]", student.name, student.id, &student.room, student.department, student.payment_status, student.contact_number) != EOF)
     {
-        if (strcmp(name, student.name) == 0)
+         if (student.name[0] == '\n') // Corrected comparison
+    {
+        // Skip leading newline characters
+        memmove(student.name, student.name + 1, strlen(student.name));
+    }
+
+        if (strcmp(student.name,name) == 0)
         {
             found = 1;
             break;
         }
     }
+
 
     if (found)
     {
@@ -47,7 +49,7 @@ void dashboard(char name[])
         system("cls");
         home();
     }
-//    } else {
+//     else {
 //        printf("Error: Student with ID '%s' not found.\n", input_id);
 //        printf("Press (B) to go back to home\n");
 //       char option;
@@ -60,8 +62,26 @@ void dashboard(char name[])
 //           home();
 //       }
 //    }
-
+//
 
     fclose(dashboard);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
