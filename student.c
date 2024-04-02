@@ -24,10 +24,10 @@ void login_student()
     unsigned long pass=encryption(passcode);
     int found = 0;
 
-    // Read each record from the file and check for matching username and password
-    while (fscanf(fp, " Name: %[^\n]\n ID: %*lu\n Username: %s\n Password: %lu\n", acc.name,acc.username, &acc.passcode))
+   // Read each record from the file and check for matching username and password
+    while (fscanf(fp, " Name: %[^\n]\n ID: %*lu\n Username: %s\n Password: %lu\n", acc.name, acc.username, &acc.passcode) == 3)
     {
-            if(strcmp(username, acc.username)== 0 && pass==acc.passcode)
+        if (strcmp(username, acc.username) == 0 && pass == acc.passcode)
         {
             found = 1;
             break; // Exit loop if match found
