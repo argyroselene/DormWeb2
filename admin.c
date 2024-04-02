@@ -2,6 +2,7 @@
 #include"admin.h"
 #include<string.h>
 #include<stdlib.h>
+#include"complaint_resolve.h"
 
 void draw_border(int length,char symbol)
 {
@@ -115,7 +116,7 @@ error:
 
         case 6:
             system("cls");
-            //complaint();
+            complaint_resolve();
             break;
 
         case 0:
