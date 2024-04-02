@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include"complaint_resolve.h"
+#include "complaint_resolve.h"
 void complaint_resolve() {
     int complaint_no;
     printf("Enter the complaint number to resolve: ");

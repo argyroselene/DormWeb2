@@ -93,11 +93,12 @@
 1710916720 source:f:\dormweb\food_menu.c
 	<stdio.h>
 
-1711013580 source:f:\1-2\sp project\dormweb2\admin.c
+1712070357 source:f:\1-2\sp project\dormweb2\admin.c
 	<stdio.h>
 	"admin.h"
 	<string.h>
 	<stdlib.h>
+	"complaint_resolve.h"
 
 1711013580 f:\1-2\sp project\dormweb2\admin.h
 
@@ -122,7 +123,7 @@
 	<string.h>
 	"search_student.h"
 
-1711086880 source:f:\1-2\sp project\dormweb2\student.c
+1712068944 source:f:\1-2\sp project\dormweb2\student.c
 	<stdio.h>
 	"student.h"
 	<string.h>
@@ -182,9 +183,10 @@
 	"student.h"
 	"admin.h"
 
-1711086687 source:f:\1-2\sp project\dormweb2\complaint_submit.c
+1712068944 source:f:\1-2\sp project\dormweb2\complaint_submit.c
 	<stdio.h>
 	<string.h>
+	<stdlib.h>
 	"complaint_submit.h"
 
 1711086829 f:\1-2\sp project\dormweb2\complaint_submit.h
@@ -220,4 +222,17 @@
 	"complaint_resolve.h"
 
 1712068605 c:\users\iqura\desktop\1-2\sp project\dormweb2\complaint_resolve.h
+
+1712068944 f:\1-2\sp project\dormweb2\complaint_resolve.h
+
+1712069450 source:f:\1-2\sp project\dormweb2\complaint_resolve.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"complaint_resolve.h"
+
+1712069858 source:f:\1-2\sp project\dormweb2\mealtrack.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
 
