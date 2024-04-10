@@ -80,7 +80,7 @@ error:
 
         case 4:
             system("cls");
-            //cleaning();
+            cleaning();
             break;
 
         case 5:
