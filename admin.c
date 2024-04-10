@@ -101,7 +101,7 @@ error:
 
         case 3:
             system("cls");
-            //cleaning_log();
+            cleaning_log();
             break;
 
       	 case 4:
