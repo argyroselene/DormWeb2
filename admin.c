@@ -3,6 +3,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include"complaint_resolve.h"
+#include "CleaningLog_Admin.h"
 
 void draw_border(int length,char symbol)
 {
