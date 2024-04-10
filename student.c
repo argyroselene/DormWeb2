@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "dashboard.h"
+#include "Cleaning_log.h"
 void login_student()
 {
     char username[101];
