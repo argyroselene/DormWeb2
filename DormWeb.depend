@@ -133,12 +133,13 @@
 1711013580 source:f:\1-2\sp project\dormweb2\food_menu.c
 	<stdio.h>
 
-1712068555 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\admin.c
+1715091210 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\admin.c
 	<stdio.h>
 	"admin.h"
 	<string.h>
 	<stdlib.h>
 	"complaint_resolve.h"
+	"CleaningLog_Admin.h"
 
 1710922817 c:\users\iqura\desktop\1-2\sp project\dormweb2\admin.h
 
@@ -163,12 +164,13 @@
 	<string.h>
 	"search_student.h"
 
-1711091269 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\student.c
+1715091210 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\student.c
 	<stdio.h>
 	"student.h"
 	<string.h>
 	<stdlib.h>
 	"dashboard.h"
+	"Cleaning_log.h"
 
 1711090477 source:f:\1-2\sp project\dormweb2\dashboard.c
 	<stdio.h>
@@ -215,7 +217,7 @@
 	"student.h"
 	"admin.h"
 
-1712068308 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\complaint_resolve.c
+1712075218 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\complaint_resolve.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -232,6 +234,26 @@
 	"complaint_resolve.h"
 
 1712069858 source:f:\1-2\sp project\dormweb2\mealtrack.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+
+1715091209 c:\users\iqura\desktop\1-2\sp project\dormweb2\cleaninglog_admin.h
+
+1715091210 c:\users\iqura\desktop\1-2\sp project\dormweb2\cleaning_log.h
+
+1715091210 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\cleaning_log.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+
+1715091209 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\cleaninglog_admin.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"Cleaning_log.h"
+
+1712075218 source:c:\users\iqura\desktop\1-2\sp project\dormweb2\mealtrack.c
 	<stdio.h>
 	<string.h>
 	<ctype.h>
