@@ -17,10 +17,10 @@ void login_student()
         printf("Account Info Not Found(File absent)\n");
         home();
     }
-    printf("\n\n\n\n\n\n\n\n\n\n");
-    printf("%120s", "Enter your username: ");
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("%90s", "Enter your username: ");
     scanf("%s", username);
-    printf("%120s", "Enter your password: ");
+    printf("%90s", "Enter your password: ");
     scanf("%s", passcode);
     unsigned long pass=encryption(passcode);
     int found = 0;
@@ -40,13 +40,13 @@ void login_student()
     if (found)
     {
         system("cls");
-        draw_border(209, '-');
+        draw_border(312, '-');
         printf("\n");
         center_print("Welcome");
         printf("\n");
         strcpy(name,acc.name);
-        draw_border(209, '-');
-        printf("\n\n\n\n\n\n\n\n\n\n");
+        draw_border(312, '-');
+        printf("\n\n\n\n\n\n\n\n");
         center_print("Please choose an option:");
         center_print("Dashboard (#1)");
         center_print("Gym Equipment Status (#2)");
@@ -108,6 +108,7 @@ error:
 
         default:
             printf("Invalid Input. Please try again\n");
+            system("cls");
             goto error;
             break;
         }
