@@ -6,24 +6,24 @@
 
 void center_print(char *s){
 
-    printf("%90s","");
+    printf("%70s","");
     printf("%*s%*s\n",10+strlen(s)/2,s,10-strlen(s)/2,"");
 
 }
 
 void home(){
 
-    printf("\n\n\n\n\n\n\n\n\n\n");
+    printf("\n\n\n\n\n\n\n\n\n");
 
     center_print("Welcome to DormWeb");
     printf("\n\n\n\n");
 
-    center_print("Choose a Window:");
-    center_print("Admin login (#1)");
-    center_print("Student login (#2)");
+    center_print("Choose a Window:\n");
+    center_print("Admin login (#1)\n");
+    center_print("Student login (#2)\n");
 
     int window;
-    printf("\n\n%110s","Please Select (1/2): ");
+    printf("%90s","Please Select (1/2): ");
     scanf("%d",&window);
     if(window==1){
         system("cls");
@@ -48,3 +48,4 @@ int main(){
 
 
 }
+
