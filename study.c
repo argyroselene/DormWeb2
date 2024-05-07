@@ -10,6 +10,11 @@ void study()
     fp=fopen("study.txt", "r");
     fscanf(fp,"%d",&occupied);
     fclose(fp);
+    draw_border(312,'-');
+    printf("\n");
+    center_print("Female Halls of Residence");
+    printf("\n");
+    draw_border(312,'-');
     printf("\n\n\n\n\n\n\n\n\n\n");
     center_print("Please choose an option:");
     center_print("Show Occupancy(#1)");
@@ -22,6 +27,12 @@ error:
     {
     case 1:
         system("cls");
+        draw_border(312,'-');
+        printf("\n");
+        center_print("Female Halls of Residence");
+        printf("\n");
+        draw_border(312,'-');
+        printf("\n\n\n\n\n\n\n\n\n\n");
         if(occupied==100) center_print("Study room is currently fully occupied.");
         else printf("Unoccupied -> %d\n",100-occupied);
         printf("GO Back(B)\n");
@@ -37,6 +48,12 @@ error:
         break;
     case 2:
         system("cls");
+        draw_border(312,'-');
+        printf("\n");
+        center_print("Female Halls of Residence");
+        printf("\n");
+        draw_border(312,'-');
+        printf("\n\n\n\n\n\n\n\n\n\n")
         printf("Are you entering or leaving the study room? (Enter 'in' or 'out'): ");
         char action[4];
         scanf("%s", action);
