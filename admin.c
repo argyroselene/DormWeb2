@@ -14,7 +14,7 @@ void draw_border(int length,char symbol)
 
 void print_centre_wnl(char *s) //wnl means without new line
 {
-        printf("%95s","");
+        printf("%70s","");
         printf("%*s%*s",10+strlen(s)/2,s,10-strlen(s)/2,"");
 }
 
@@ -38,9 +38,9 @@ void login_admin(){
 //    printf("%s\n",name); //Uncomment for (Debug)
 //    printf("%s",code); //Uncomment for (Debug)
     printf("\n\n\n\n\n\n\n\n\n\n");
-    printf("%120s","Enter UserName: ");
+    print_centre_wnl("Enter UserName: ");
     scanf("%s",&input_name);
-    printf("%120s","Enter Passcode: ");
+    print_centre_wnl("Enter Passcode: ");
     scanf("%s",&input_code);
 
 //   printf("%s\n",input_name);//Uncomment for (Debug)
@@ -51,11 +51,11 @@ void login_admin(){
 
    {
        system("cls");
-       draw_border(209,'-');
+       draw_border(312,'-');
        printf("\n");
        center_print("Welcome Admin");
        printf("\n");
-       draw_border(209,'-');
+       draw_border(312,'-');
 
    }
 
