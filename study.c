@@ -53,7 +53,7 @@ error:
         center_print("Female Halls of Residence");
         printf("\n");
         draw_border(312,'-');
-        printf("\n\n\n\n\n\n\n\n\n\n")
+        printf("\n\n\n\n\n\n\n\n\n\n");
         printf("Are you entering or leaving the study room? (Enter 'in' or 'out'): ");
         char action[4];
         scanf("%s", action);
