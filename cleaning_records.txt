@@ -1,0 +1,7 @@
+Room 506: Clean
+Room 102: Unclean
+Room 103: Clean
+Room 104: Clean
+Room 501: Unclean
+Room 503: Clean
+Room 601: Clean
