@@ -40,7 +40,7 @@ void updateCleaningStatus(char *filename, char *RoomNumber) {
         return;
     }
 
-    fprintf(file, "%s: Clean\n", RoomNumber);
+    fprintf(file, "Room %s: Clean\n", RoomNumber);
     printf("\n");
     center_print("Cleaning successfully updated.\n");
     fclose(file);
