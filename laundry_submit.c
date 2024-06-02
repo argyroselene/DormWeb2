@@ -3,13 +3,23 @@
 #include <stdlib.h>
 void center_print(char *s);
 
-void laundry(){
+void laundry_main(){
     printf("\n\n\n\n\n\n\n\n\n\n");
     center_print("Please choose an option:");
     center_print("Submit Laundry (#1)");
     center_print("Receive Laundry (#2)");
     center_print("Records (#3)");
     center_print("Go to home (#0)");
+    center_print("Press (B) or (b) to go back");
+    char option2;;
+        scanf(" %c",&option2);
+
+        if(option2 == 'B' || option2 == 'b')
+
+        {
+            system("cls");
+            login_admin();
+        }
     char op;
 error:
     scanf(" %c", &op);
@@ -22,12 +32,12 @@ error:
 
     case '2':
         system("cls");
-        //laundry_receive();
+        laundry_receive();
         break;
 
     case '3':
         system("cls");
-        //records();
+        laundry_records();
         break;
 
     case '0':
@@ -65,6 +75,16 @@ void laundry_submit() {
     center_print("Bedsheet & Pillow Cover (#3)");
 
     center_print("Go to home (#0)");
+    center_print("Press (B) or (b) to go back");
+    char option2;;
+        scanf(" %c",&option2);
+
+        if(option2 == 'B' || option2 == 'b')
+
+        {
+            system("cls");
+            laundry_main();
+        }
 
     char what_to_do;
     int amount;
@@ -137,6 +157,15 @@ error:
 
     center_print("Your laundry is successfully submitted");
     center_print("Press any key to continue");
+    center_print("Press (B) or (b) to go back");
+        scanf(" %c",&option2);
+
+        if(option2 == 'B' || option2 == 'b')
+
+        {
+            system("cls");
+            laundry_submit();
+        }
     char temp;
     fflush(stdin);
     scanf("%c", &temp);
