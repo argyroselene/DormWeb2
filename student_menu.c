@@ -30,7 +30,7 @@ error:
 
     case '2':
         system("cls");
-        // gym();
+        gym();
         break;
 
     case '3':
@@ -45,7 +45,7 @@ error:
 
     case '5':
         system("cls");
-        // notice();
+        notice_check();
         break;
 
     case '6':
