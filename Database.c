@@ -19,7 +19,7 @@ void searchByRoomNumber(Database db[], int count, const char *roomNumber) {
         }
     }
     if (!found) {
-        center_print("No students found in room number %s\n", roomNumber);
+        printf("No students found in room number %s\n", roomNumber);
 
     }
 }
@@ -99,6 +99,7 @@ void database() {
     center_print("2.Payment Status");
     center_print("3.Department");
     center_print("4.Semester");
+data:
     center_print("Enter your choice: ");
     scanf(" %c", &choice);
 
@@ -124,7 +125,8 @@ void database() {
             searchBySemester(db, count, input);
             break;
         default:
-            center_print("Invalid choice.\n");
+            center_print("Invalid choice.Please try again\n");
+            goto data;
     }
     center_print("Press any key to go back:");
     char x;
@@ -134,5 +136,8 @@ void database() {
         admin_menu();
     }
 }
+
+
+
 
 
