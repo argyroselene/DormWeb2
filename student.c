@@ -40,13 +40,13 @@ void login_student()
         if (found)
         {
             system("cls");
-            draw_border(336, '-');
+            draw_border(312, '-');
             printf("\n");
             center_print("Welcome");
             printf("\n");
             strcpy(logged_in_student_name, acc.name);
             //printf("%s",logged_in_student_name);
-            draw_border(336, '-');
+            draw_border(312, '-');
             student_menu();
         }
         else
