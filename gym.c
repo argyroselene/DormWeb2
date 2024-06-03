@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_EQUIPMENTS 5
 #define MAX_LINE_LENGTH 100
@@ -11,44 +11,29 @@ typedef struct {
 } Equipment;
 
 void read_gym_equipment_data(Equipment equipments[]) {
-    FILE *csv_file = fopen("equipments.csv", "r");
-    FILE *txt_file = fopen("gym_equipment.txt", "w");
+    FILE *csv_file = fopen("gym_equipment.csv", "r");
+    if (csv_file == NULL) {
+        perror("Error opening CSV file for reading");
+        exit(EXIT_FAILURE);
+    }
+
     char line[MAX_LINE_LENGTH];
     int i = 0;
-    char name[30];
-    int occupied = 0;
     while (fgets(line, sizeof(line), csv_file) != NULL && i < MAX_EQUIPMENTS) {
-        if (sscanf(line, "%[^,],%d", name, &occupied) == 2) {
-            strcpy(equipments[i].name, name);
-            equipments[i].occupied = occupied;
-            fprintf(txt_file, "%s %d\n", name, occupied);
+        if (sscanf(line, "%[^,],%d", equipments[i].name, &equipments[i].occupied) == 2) {
             i++;
         }
     }
 
-    fclose(txt_file);
     fclose(csv_file);
 }
 
-void read_gym_equipment_data_from_text_file(Equipment equipments[]) {
-    FILE *txt_file = fopen("gym_equipment.txt", "r");
-    if (txt_file == NULL) {
-        printf("Error opening text file for reading.\n");
-        exit(1);
-    }
-
-    char line[MAX_LINE_LENGTH];
-    int i = 0;
-    while (fgets(line, sizeof(line), txt_file) != NULL && i < MAX_EQUIPMENTS) {
-        sscanf(line, "%s %d", equipments[i].name, &equipments[i].occupied);
-        i++;
-    }
-
-    fclose(txt_file);
-}
-
 void update_csv_file(Equipment equipments[]) {
-    FILE *csv_file = fopen("equipments.csv", "w");
+    FILE *csv_file = fopen("gym_equipment.csv", "w");
+    if (csv_file == NULL) {
+        perror("Error opening CSV file for writing");
+        exit(EXIT_FAILURE);
+    }
 
     for (int i = 0; i < MAX_EQUIPMENTS; i++) {
         fprintf(csv_file, "%s,%d\n", equipments[i].name, equipments[i].occupied);
@@ -65,10 +50,9 @@ void update_gym_equipment_status(Equipment equipments[]) {
     int choice;
     while (1) {
         printf("Enter the number of the equipment you want to update: ");
-        scanf("%d", &choice);
-
-        if (choice < 1 || choice > MAX_EQUIPMENTS) {
+        if (scanf("%d", &choice) != 1 || choice < 1 || choice > MAX_EQUIPMENTS) {
             printf("Invalid choice. Please try again.\n");
+            while (getchar() != '\n'); // Clear input buffer
         } else {
             break;
         }
@@ -80,10 +64,9 @@ void update_gym_equipment_status(Equipment equipments[]) {
     int action;
     while (1) {
         printf("Enter the action you want to perform (1 to Occupy, 2 to Unoccupy): ");
-        scanf("%d", &action);
-
-        if (action != 1 && action != 2) {
+        if (scanf("%d", &action) != 1 || (action != 1 && action != 2)) {
             printf("Invalid action. Please try again.\n");
+            while (getchar() != '\n'); // Clear input buffer
         } else {
             break;
         }
@@ -105,12 +88,6 @@ void update_gym_equipment_status(Equipment equipments[]) {
         }
     }
 
-    FILE *txt_file = fopen("gym_equipment.txt", "w");
-    for (int i = 0; i < MAX_EQUIPMENTS; i++) {
-        fprintf(txt_file, "%s %d\n", equipments[i].name, equipments[i].occupied);
-    }
-    fclose(txt_file);
-
     update_csv_file(equipments);
 
     printf("\nPress 'b' to go back.\n");
@@ -127,24 +104,16 @@ void update_gym_equipment_status(Equipment equipments[]) {
 }
 
 void show_unoccupied_gym_equipment() {
-    FILE *txt_file = fopen("gym_equipment.txt", "r");
-    if (txt_file == NULL) {
-        printf("Error opening text file for reading.\n");
-        return;
-    }
+    Equipment equipments[MAX_EQUIPMENTS];
+    read_gym_equipment_data(equipments);
 
-    char line[MAX_LINE_LENGTH];
     printf("Unoccupied Gym Equipments:\n");
-    while (fgets(line, sizeof(line), txt_file) != NULL) {
-        char name[30];
-        int occupied;
-        sscanf(line, "%s %d", name, &occupied);
-        if (occupied == 0) {
-            printf("%s\n", name);
+    for (int i = 0; i < MAX_EQUIPMENTS; i++) {
+        if (!equipments[i].occupied) {
+            printf("%s\n", equipments[i].name);
         }
     }
 
-    fclose(txt_file);
     printf("\nPress 'b' to go back.\n");
 
     char ch;
@@ -176,7 +145,6 @@ void gym_menu(Equipment equipments[]) {
 void gym() {
     Equipment equipments[MAX_EQUIPMENTS];
     read_gym_equipment_data(equipments);
-    read_gym_equipment_data_from_text_file(equipments);
 
     while (1) {
         gym_menu(equipments);
