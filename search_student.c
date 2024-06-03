@@ -8,7 +8,7 @@ void search_student(){
     struct Student student;
 
 
-    dash = fopen("database.txt", "r");
+    dash = fopen("database.csv", "r");
     if (dash == NULL) {
         printf("Error: Unable to open the file.\n");
     }
@@ -20,7 +20,7 @@ void search_student(){
 
 
     int found = 0;
-    while (fscanf(dash, "%[^,],%[^,],%d,%[^,],%[^,],%[^\n]", student.name, student.id, &student.room, student.department, student.payment_status, student.contact_number) != EOF) {
+    while (fscanf(dash, "%[^,],%[^,],%d,%[^,],%[^,],%[^,],%[^\n]", student.name, student.id, &student.room, student.department, student.payment_status, student.contact_number,student.semester) != EOF) {
         if (strcmp(student.id, input_id) == 0) {
             found = 1;
             break;
@@ -35,16 +35,17 @@ if (found) {
         printf("Department: %s\n", student.department);
         printf("Payment Status: %s\n", student.payment_status);
         printf("Contact Number: %s\n", student.contact_number);
+        printf("Current Semester: %s\n",student.semester);
         printf("\n\n\n\n");
-        printf("Press any key to continue\n");
+        printf("Press any key to go back\n");
         char temp;
         fflush(stdin);
-        scanf("%c", &temp );
+        scanf(" %c", &temp );
         system("cls");
-        home();
+        admin_menu();
     } else {
         printf("Error: Student with ID '%s' not found.\n", input_id);
-        printf("Press (B) to go back to home\n");
+        printf("Press (B) to go back to menu\n");
        char option;
        scanf(" %c",&option);
 
@@ -52,7 +53,7 @@ if (found) {
 
        {
            system("cls");
-           home();
+           admin_menu();
        }
     }
 
