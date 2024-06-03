@@ -1,36 +1,34 @@
 #include <stdio.h>
 #include <string.h>
 #include "dashboard.h"
+#include "globals.h"
 
-void dashboard(char* name)
+void dashboard()
 {
-
     FILE *dashboard;
     struct Student student;
 
-
-    dashboard = fopen("database.txt", "r");
+    dashboard = fopen("database.csv", "r");
     if (dashboard == NULL)
     {
         printf("Error: Unable to open the file.\n");
+        return;
     }
 
     int found = 0;
-    while (fscanf(dashboard, "%[^,],%[^,],%d,%[^,],%[^,],%[^\n]", student.name, student.id, &student.room, student.department, student.payment_status, student.contact_number) != EOF)
+    char line[512];
+    while (fgets(line, sizeof(line), dashboard))
     {
-         if (student.name[0] == '\n') // Corrected comparison
-    {
-        // Skip leading newline characters
-        memmove(student.name, student.name + 1, strlen(student.name));
-    }
+        line[strcspn(line, "\n")] = '\0';
 
-        if (strcmp(student.name,name) == 0)
+        sscanf(line, "%[^,],%[^,],%d,%[^,],%[^,],%[^,],%[^\n]", student.name, student.id, &student.room, student.department, student.payment_status, student.contact_number, student.semester);
+
+        if (strcmp(student.name, logged_in_student_name) == 0)
         {
             found = 1;
             break;
         }
     }
-
 
     if (found)
     {
@@ -41,31 +39,23 @@ void dashboard(char* name)
         printf("Department: %s\n", student.department);
         printf("Payment Status: %s\n", student.payment_status);
         printf("Contact Number: %s\n", student.contact_number);
+        printf("Current Semester: %s\n", student.semester);
         printf("\n\n\n\n");
         printf("Press any key to continue\n");
         char temp;
         fflush(stdin);
-        scanf("%c", &temp );
+        scanf(" %c", &temp);
         system("cls");
-        home();
+        student_menu();
     }
-//     else {
-//        printf("Error: Student with ID '%s' not found.\n", input_id);
-//        printf("Press (B) to go back to home\n");
-//       char option;
-//       scanf(" %c",&option);
-//
-//    if(option == 'B' || option == 'b')
-//
-//       {
-//           system("cls");
-//           home();
-//       }
-//    }
-//
+    else
+    {
+        printf("Student not found.\n");
+    }
 
     fclose(dashboard);
 }
+
 
 
 
