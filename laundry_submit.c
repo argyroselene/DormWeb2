@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-void center_print(char *s);
+#include "laundry.h"
 
 void laundry_main(){
     printf("\n\n\n\n\n\n\n\n\n\n");
@@ -11,18 +11,11 @@ void laundry_main(){
     center_print("Records (#3)");
     center_print("Go to home (#0)");
     center_print("Press (B) or (b) to go back");
-    char option2;;
-        scanf(" %c",&option2);
-
-        if(option2 == 'B' || option2 == 'b')
-
-        {
-            system("cls");
-            login_admin();
-        }
     char op;
-error:
-    scanf(" %c", &op);
+
+ error:
+
+    scanf(" %c",&op);
 
     switch (op) {
     case '1':
@@ -44,6 +37,14 @@ error:
         system("cls");
         home();
         break;
+    case 'b':
+        system("cls");
+        admin_menu();
+        break;
+    case 'B':
+        system("cls");
+        admin_menu();
+        break;
 
     default:
         printf("Invalid Input. Please try again\n");
@@ -53,11 +54,9 @@ error:
 
 
 }
-
 void laundry_submit() {
     char type_string[100];
     char type_string2[100];
-
 
     printf("\n\n\n\n\n\n\n\n\n\n");
     center_print("Please type your name: ");
@@ -76,34 +75,25 @@ void laundry_submit() {
 
     center_print("Go to home (#0)");
     center_print("Press (B) or (b) to go back");
-    char option2;;
-        scanf(" %c",&option2);
-
-        if(option2 == 'B' || option2 == 'b')
-
-        {
-            system("cls");
-            laundry_main();
-        }
 
     char what_to_do;
-    int amount;
-    int amount2;
+    int amount=0;
+    int amount2=0;
 error:
     scanf(" %c", &what_to_do);
     switch (what_to_do) {
     case '1':
         system("cls");
         center_print("Enter the quantity:");
-        scanf("%d", &amount);
-        strcpy(type_string, "Bedsheet");
+        scanf("%d", &amount2);
+        strcpy(type_string, "Bedsheet Q");
         break;
 
     case '2':
         system("cls");
         center_print("Enter the quantity:");
         scanf("%d", &amount);
-        strcpy(type_string, "Pillow Cover");
+        strcpy(type_string, "Pillow Cover Q");
         break;
 
     case '3':
@@ -112,14 +102,21 @@ error:
         scanf("%d", &amount);
         center_print("Enter the quantity of Pillow Cover:");
         scanf("%d", &amount2);
-        strcpy(type_string, "Bedsheet");
-        strcpy(type_string2, "Pillow Cover");
-
+        strcpy(type_string, "Bedsheet Q");
+        strcpy(type_string2, "Pillow Cover Q");
         break;
 
     case '0':
         system("cls");
         home();
+        break;
+    case 'b':
+        system("cls");
+        laundry_main();
+        break;
+    case 'B':
+        system("cls");
+        laundry_main();
         break;
 
     default:
@@ -127,49 +124,63 @@ error:
         goto error;
         break;
     }
-    // Open file to read the last number
+
+    // Open file to read the last laundry number
     FILE *file;
-    file = fopen("laundry.txt", "r");
-    int last_complaint_no = 0;
+    file = fopen("laundry.csv", "r");
+    int last_laundry_no = 0;
     char line[1000];
 
-    // Read the last line of the file to get the last complaint number
+    // Read the last line of the file to get the last laundry number
     while (fgets(line, sizeof(line), file) != NULL) {
-        sscanf(line, "Laundry No: %d,", &last_complaint_no);
+        sscanf(line, "%d,", &last_laundry_no);
     }
 
     fclose(file);
 
-    // storing all the info in a file (append)
-    file = fopen("laundry.txt", "a");
+    // Open the CSV file for appending
+    file = fopen("laundry.csv", "a");
     if (file == NULL) {
-        printf("Error opening file!\n");
-    }
-    else if(what_to_do=='3'){
-        fprintf(file, "Laundry No: %d, Name: %s, Room: %d, %s Quantity: %d, %s Quantity: %d\n", last_complaint_no + 1, name, room, type_string, amount, type_string2, amount2);
-        fclose(file);
+        printf("Error opening CSV file for writing!\n");
+        return;
     }
 
-    else {
-        fprintf(file, "Laundry No: %d, Name: %s, Room: %d, %s, Quantity: %d\n", last_complaint_no + 1, name, room, type_string, amount);
-        fclose(file);
+    // If file is empty, write the header
+    long file_size;
+    fseek(file, 0, SEEK_END);
+    file_size = ftell(file);
+    if (file_size == 0) {
+        fprintf(file, "Laundry No,Name,Room,%s,%s\n", type_string, type_string2);
     }
+
+    // Write laundry data to the CSV file
+    if (what_to_do == '3') {
+        fprintf(file, "%d,%s,%d,%d,%d\n", last_laundry_no + 1, name, room, amount, amount2);
+    } else {
+        fprintf(file, "%d,%s,%d,%d,%d\n", last_laundry_no + 1, name, room, amount,amount2);
+    }
+
+    // Close the CSV file
+    fclose(file);
 
     center_print("Your laundry is successfully submitted");
     center_print("Press any key to continue");
     center_print("Press (B) or (b) to go back");
-        scanf(" %c",&option2);
+    char option2;
+    scanf(" %c", &option2);
 
-        if(option2 == 'B' || option2 == 'b')
-
-        {
-            system("cls");
-            laundry_submit();
-        }
-    char temp;
-    fflush(stdin);
-    scanf("%c", &temp);
-    system("cls");
-    home();
+    if (option2 == 'B' || option2 == 'b') {
+        system("cls");
+        amount=0;
+        amount2=0;
+        laundry_main();
+    } else {
+        char temp;
+        fflush(stdin);
+        scanf("%c", &temp);
+        system("cls");
+        admin_menu();
+    }
 }
+
 
