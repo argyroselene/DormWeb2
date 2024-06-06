@@ -1,33 +1,40 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "laundry.h"
 
-void writeLaundryToCSV(const char *csvFileName, int laundryNo) {
+int laundry_records() {
+    FILE *laundry;
 
-    FILE *csvFile = fopen(csvFileName, "a");
-    if (csvFile == NULL) {
-        printf("Error opening CSV file for writing!\n");
-        return;
+    laundry = fopen("laundry.csv", "r");
+
+    if (laundry == NULL) {
+        printf("Error opening file.\n");
+        home();
     }
 
+    printf("\n%-12s%-12s%-12s%-18s%-18s\n", "Laundry No", "Name", "Room", "Bedsheet Q", "Pillow Cover Q");
+    printf("--------------------------------------------------------------\n");
 
-    fprintf(csvFile, "%d\n", laundryNo);
+    char line[100];
+    int count = 0;
+    while (fgets(line, sizeof(line), laundry)) {
+        if (count == 0) { // Skip the header line
+            count++;
+            continue;
+        }
 
-    fclose(csvFile);
-}
+        int laundryNo;
+        char name[100];
+        int room;
+        int bedsheetQty, pillowCoverQty;
 
-void laundry_receive() {
-    int laundry_no;
-    printf("Enter the laundry number to receive: ");
-    scanf("%d", &laundry_no);
+        sscanf(line, "%d,%[^,],%d,%d,%d", &laundryNo, name, &room, &bedsheetQty, &pillowCoverQty);
 
-    writeLaundryToCSV("laundry.csv", laundry_no);
+        printf("%-12d%-12s%-12d%-18d%-18d\n", laundryNo, name, room, bedsheetQty, pillowCoverQty);
+        count++;
+    }
 
-    printf("Laundry with number %d received successfully.\n", laundry_no);
+    fclose(laundry);
 
-
-    system("cls");
     center_print("Press (B) or (b) to go back");
     center_print("Press any key to continue");
 
@@ -43,5 +50,6 @@ void laundry_receive() {
         home();
     }
 }
+
 
 
