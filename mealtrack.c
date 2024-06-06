@@ -5,26 +5,31 @@
 
 #define MAX_LENGTH 100
 
-void resetFileForNewMeal(char *filename) {
+void resetFileForNewMeal(char *filename)
+{
     FILE *file = fopen(filename, "w");
-    if (file == NULL) {
+    if (file == NULL)
+    {
         printf("Error opening file.\n");
         return;
     }
-    fprintf(file, "MealID\n"); 
+    fprintf(file, "MealID\n");
     printf("The file is reset.\n");
     fclose(file);
 }
 
-int mealAlreadyTaken(char *filename, char *studentID) {
+int mealAlreadyTaken(char *filename, char *studentID)
+{
     FILE *file = fopen(filename, "r");
-    if (file == NULL) {
+    if (file == NULL)
+    {
         printf("Error opening file.\n");
         return -1;
     }
 
     char line[MAX_LENGTH];
-    while (fgets(line, MAX_LENGTH, file) != NULL) {
+    while (fgets(line, MAX_LENGTH, file) != NULL)
+    {
         char id[MAX_LENGTH];
         sscanf(line, "%[^,\n]", id);
 
@@ -34,7 +39,8 @@ int mealAlreadyTaken(char *filename, char *studentID) {
         for (int i = strlen(ptr) - 1; i >= 0 && (ptr[i] == ' ' || ptr[i] == '\t' || ptr[i] == '\n'); i--)
             ptr[i] = '\0';
 
-        if (strcmp(id, studentID) == 0) {
+        if (strcmp(id, studentID) == 0)
+        {
             fclose(file);
             return 1;
         }
@@ -45,9 +51,11 @@ int mealAlreadyTaken(char *filename, char *studentID) {
 }
 
 
-void updateMealStatus(char *filename, char *studentID) {
+void updateMealStatus(char *filename, char *studentID)
+{
     FILE *file = fopen(filename, "a");
-    if (file == NULL) {
+    if (file == NULL)
+    {
         printf("Error opening file.\n");
         return;
     }
@@ -57,11 +65,21 @@ void updateMealStatus(char *filename, char *studentID) {
     fclose(file);
 }
 
+int isValidStudentID(char *studentID)
+{
+    if (strlen(studentID) != 9) return 0;
+    for (int i = 0; i < 9; i++)
+    {
+        if (!isdigit(studentID[i])) return 0;
+    }
+    return 1;
+}
+
 void mealtrack()
 {
     char filename[] = "meal_records.csv";
 menu:
-     printf("\n\n\n\n\n\n\n\n\n");
+    printf("\n\n\n\n\n\n\n\n\n");
     center_print("Please choose an option :\n");
     center_print("Update Meal Status (#1)\n");
     center_print("Start a new Meal (#2)\n");
@@ -77,6 +95,12 @@ menu:
 add:
         center_print("Enter student ID: ");
         scanf("%s", studentID);
+        if (!isValidStudentID(studentID))
+        {
+            printf("Invalid student ID. Please Enter a valid student ID.\n");
+            goto add;
+        }
+
 
         if (mealAlreadyTaken(filename, studentID))
         {
@@ -118,16 +142,20 @@ add:
         resetFileForNewMeal(filename);
 
         center_print("Please press any key to continue:\n");
-            char c;
-            scanf(" %c",&c);
-            system("cls");
-            goto menu;
+        char c;
+        scanf(" %c",&c);
+        system("cls");
+        goto menu;
 
     }
-    else if(choice==3){
+    else if(choice==3)
+    {
         system("cls");
         admin_menu();
     }
 
 }
+
+
+
 
