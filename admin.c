@@ -15,27 +15,39 @@ void print_centre_wnl(char *s)
         printf("%*s%*s",10+strlen(s)/2,s,10-strlen(s)/2,"");
 }
 
-void get_masked_password(char *password, int max_len) {
+void get_masked_password(char *password, int max_len)
+{
     int index = 0;
     char ch;
 
-    while (1) {
+    while (1)
+    {
         ch = getch();
 
-        if (ch == '\r' || ch == '\n') {
+        if (ch == '\r' || ch == '\n')
+        {
             password[index] = '\0';
             break;
-        } else if (ch == '\b') {
-            if (index > 0) {
+        }
+        else if (ch == '\b')
+        {
+            if (index > 0)
+            {
                 index--;
                 printf("\b \b");
-        } else if (index < max_len - 1) {
+            }
+        }
+
+        else
+        {
             password[index] = ch;
             index++;
             printf("*");
         }
     }
 }
+
+
 
 
 void login_admin() {
@@ -91,3 +103,4 @@ void login_admin() {
        }
    }
 }
+
