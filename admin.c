@@ -1,9 +1,6 @@
 #include<stdio.h>
 #include"admin.h"
-#include<string.h>
 #include<stdlib.h>
-#include"complaint_resolve.h"
-#include "CleaningLog_Admin.h"
 
 void draw_border(int length,char symbol)
 {
@@ -12,14 +9,37 @@ void draw_border(int length,char symbol)
     printf("\n");
 }
 
-void print_centre_wnl(char *s) //wnl means without new line
+void print_centre_wnl(char *s)
 {
         printf("%70s","");
         printf("%*s%*s",10+strlen(s)/2,s,10-strlen(s)/2,"");
 }
 
-void login_admin(){
-    FILE *fp;
+void get_masked_password(char *password, int max_len) {
+    int index = 0;
+    char ch;
+
+    while (1) {
+        ch = getch();
+
+        if (ch == '\r' || ch == '\n') {
+            password[index] = '\0';
+            break;
+        } else if (ch == '\b') {
+            if (index > 0) {
+                index--;
+                printf("\b \b");
+        } else if (index < max_len - 1) {
+            password[index] = ch;
+            index++;
+            printf("*");
+        }
+    }
+}
+
+
+void login_admin() {
+   FILE *fp;
     fp=fopen("admin_info.txt", "r");
     if(fp == NULL)
     {
@@ -35,32 +55,27 @@ void login_admin(){
 
     char input_code[50];
     char input_name[100];
-//    printf("%s\n",name); //Uncomment for (Debug)
-//    printf("%s",code); //Uncomment for (Debug)
+
     printf("\n\n\n\n\n\n\n\n\n\n");
     print_centre_wnl("Enter UserName: ");
     scanf("%s",&input_name);
     print_centre_wnl("Enter Passcode: ");
-    scanf("%s",&input_code);
 
-//   printf("%s\n",input_name);//Uncomment for (Debug)
-//   printf("%s",input_code);//Uncomment for (Debug)
+    get_masked_password(input_code, sizeof(input_code));
 
 
    if(strcmp(code, input_code)==0  && strcmp(name,input_name)== 0)
 
    {
        system("cls");
-       draw_border(312,'-');
+       draw_border(336,'-');
        printf("\n");
        center_print("Welcome Admin");
        printf("\n");
-       draw_border(312,'-');
+       draw_border(336,'-');
+       admin_menu();
 
    }
-
-
-
    else
    {
        system("cls");
@@ -75,59 +90,4 @@ void login_admin(){
            home();
        }
    }
-    printf("\n\n\n\n\n\n\n\n\n\n");
-    center_print("Please choose an option:");
-    center_print("Database (#1)");
-    center_print("Search Student Information (#2)");
-    center_print("Cleaning Log (#3)");
-    center_print("Laundry Maintenance (#4)");
-    center_print("Meal Tracking (#5)");
-    center_print("Complaint (#6)");
-    center_print("Go to home (#0)");
-
-    int what_to_do;
-
-error:
-     scanf("%d",&what_to_do);
-        switch (what_to_do){
-        case 1:
-            system("cls");
-            //database();
-            break;
-
-        case 2:
-            system("cls");
-            search_student();
-            break;
-
-        case 3:
-            system("cls");
-            cleaning_log();
-            break;
-
-      	 case 4:
-            system("cls");
-            //laundry();
-            break;
-
-        case 5:
-            system("cls");
-            mealtrack();
-            break;
-
-        case 6:
-            system("cls");
-            complaint_resolve();
-            break;
-
-        case 0:
-            system("cls");
-            home();
-            break;
-
-        default:
-            printf("Invalid Input. Please try again\n");
-            goto error;
-            break;
-        }
-    }
+}
