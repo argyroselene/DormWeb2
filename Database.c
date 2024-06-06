@@ -4,7 +4,7 @@
 #include "Database.h"
 
 void displayDatabase(Database db) {
-    printf("Name: %s, ID: %s, Room Number: %s, Department: %s, Status: %s, Phone Number: %s, Semester: %s\n",
+    printf("Name: %s, ID: %s, Room Number: %s, Department: %s,Payment Status: %s, Phone Number: %s, Semester: %s\n",
            db.name, db.id, db.roomNumber, db.department, db.status, db.phoneNumber, db.semester);
 }
 
@@ -136,6 +136,9 @@ data:
         admin_menu();
     }
 }
+
+
+
 
 
 
