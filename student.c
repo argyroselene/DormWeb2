@@ -6,6 +6,7 @@
 #include "Cleaning_log.h"
 #include "globals.h"
 
+
 void login_student()
 {
     char username[101];
@@ -22,14 +23,18 @@ void login_student()
     printf("%90s", "Enter your username: ");
     scanf("%s", username);
     printf("%90s", "Enter your password: ");
-    scanf("%s", passcode);
+
+
+    get_masked_password(passcode, sizeof(passcode));
+
+
     unsigned long pass = encryption(passcode);
     int found = 0;
 
     char line[256];
     while (fgets(line, sizeof(line), fp))
     {
-        sscanf(line, "%[^,],%[^,],%[^,],%lu", acc.name, acc.id, acc.username, &acc.passcode);
+        sscanf(line, "%[^,],%[^,],%[^,],%lu", acc.name, acc.id, acc.username, &acc.passcode); // corrected format specifier
         if (strcmp(username, acc.username) == 0 && pass == acc.passcode)
         {
             found = 1;
@@ -40,13 +45,13 @@ void login_student()
         if (found)
         {
             system("cls");
-            draw_border(312, '-');
+            draw_border(336, '-');
             printf("\n");
             center_print("Welcome");
             printf("\n");
             strcpy(logged_in_student_name, acc.name);
             //printf("%s",logged_in_student_name);
-            draw_border(312, '-');
+            draw_border(336, '-');
             student_menu();
         }
         else
